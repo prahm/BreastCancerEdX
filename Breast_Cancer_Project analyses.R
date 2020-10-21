@@ -247,6 +247,7 @@ confusionMatrix(data = as.factor(y_hat_ensemble), reference = test_y)$overall["A
 
 #Ass18 Q16b
 #Let's make a table of all the accuracies, incl. k_means:
+as.factor(kmeans_preds_char)
 models <- c("K-means", "Logistic regression", "LDA", "QDA", "Loess", "KNN", "Random forest", "Ensemble")
 all_acc <- c(mean(kmeans_preds_fact == test_y),
              mean(y_hat_glm == test_y),
@@ -257,7 +258,6 @@ all_acc <- c(mean(kmeans_preds_fact == test_y),
              mean(y_hat_rf == test_y),
              mean(as.factor(y_hat_ensemble) == test_y))
 data.frame(Model = models, Accuracy = all_acc) %>% arrange(desc(Accuracy))
-
 
 
 
